@@ -82,12 +82,11 @@ class AddContact extends React.Component {
         axios.post('http://localhost:4000/', obj)
             .then(res => console.log(res.data));
         // debugger;
-        this.props.history.push('/contactList')
+        this.props.history.push('/create')
     }
     render() {
         return (
-            <Container className="App">
-
+            <div Container className="App">
                 <h4 className="PageHeading">Add Contact List</h4>
                 <Form className="form" onSubmit={this.onSubmit}>
                     <Col>
@@ -112,13 +111,18 @@ class AddContact extends React.Component {
                         <FormGroup row>
                             <Label for="Location" sm={2}>Location</Label>
                             <Col sm={10}>
-                                <Input type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="Choose your Location" />
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Choose your Location</option>
+                                    <option value="1" onChange={this.handleChange} value={this.state.date}>Cebu</option>
+                                    <option value="2" onChange={this.handleChange} value={this.state.date}>Manila</option>
+                                </select>
+
                             </Col>
                         </FormGroup>
                         <FormGroup row>
                             <Label for="Date" sm={2}>Registered Date</Label>
                             <Col sm={10}>
-                                <Input type="text" name="date" onChange={this.handleChange} value={this.state.date} placeholder="Registered Date" />
+                                <Input type="date" name="date" onChange={this.handleChange} value={this.state.date} placeholder="Registered Date" />
                             </Col>
                         </FormGroup>
                     </Col>
@@ -137,7 +141,7 @@ class AddContact extends React.Component {
                         </FormGroup>
                     </Col>
                 </Form>
-            </Container>
+            </div>
         );
     }
 

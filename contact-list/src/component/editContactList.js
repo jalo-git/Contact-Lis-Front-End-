@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios'
 import '../component/addContactList'
+
 class Edit extends React.Component {
     constructor(props) {
         super(props)
@@ -67,7 +68,6 @@ class Edit extends React.Component {
     }
 
     onSubmit(e) {
-        // debugger;
         e.preventDefault();
         const obj = {
             Id: this.props.match.params.id,
@@ -80,7 +80,6 @@ class Edit extends React.Component {
         };
         axios.post('http://localhost:4000/', obj)
             .then(res => console.log(res.data));
-        // debugger;
         this.props.history.push('/contactList')
     }
     render() {
@@ -111,7 +110,12 @@ class Edit extends React.Component {
                         <FormGroup row>
                             <Label for="Location" sm={2}>Location</Label>
                             <Col sm={10}>
-                                <Input type="text" name="location" onChange={this.handleChange} value={this.state.location} placeholder="Choose your Location" />
+                            <select class="form-select" aria-label="Default select example">
+                            <option selected>Choose your Location</option>
+                            <option value="1" onChange={this.handleChange} value={this.state.date}>Cebu</option>
+                            <option value="2" onChange={this.handleChange} value={this.state.date}>Manila</option>
+                          </select>
+                                
                             </Col>
                         </FormGroup>
                         <FormGroup row>
