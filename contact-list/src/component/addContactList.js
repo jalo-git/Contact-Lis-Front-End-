@@ -88,7 +88,7 @@ class AddContact extends React.Component {
         return (
             <Container className="App">
 
-                <h4 className="PageHeading">Update Contact List</h4>
+                <h4 className="PageHeading">Add Contact List</h4>
                 <Form className="form" onSubmit={this.onSubmit}>
                     <Col>
                         <FormGroup row>
